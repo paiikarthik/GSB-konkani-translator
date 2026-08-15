@@ -102,21 +102,21 @@ footer{
     <form action="">
 
         <div id="lang">
-        <select id="selecttab">
-            <option value="eng">English</option>
-            <option value="kon">Konkani</option>
+        <select id="sourcelang">
+            <option value="eng" id="en" selected>English</option>
+            <option value="kon" id="ko">Konkani</option>
         </select>
 
 
 
-        <select id="selecttab">
-            <option value="eng">English</option>
-            <option value="kon" selected>Konkani</option>
+        <select id="targetlang">
+            <option value="eng" id="en">English</option>
+            <option value="kon" selected id="kon">Konkani</option>
         </select>
         </div>
         <div id="text">
-                 <textarea name="" id=""></textarea>
-                   <textarea name="" id=""></textarea>
+                 <textarea name="" id="sourceText" placeholder="Enter  Text in English"></textarea>
+                   <textarea name="" id="targetText" placeholder="Translated Text" disabled></textarea>
         </div>
         
         <button id="btn" >Transalate</button>
@@ -124,5 +124,41 @@ footer{
     </form>
 </div>
 <footer>Built By Karthik Pai | Sources: Save My Language</footer>
+
+<script>
+   const sourcelang=document.getElementById("sourcelang");
+   const sourceText=document.getElementById("sourceText");
+
+sourcelang.addEventListener("change",function(){
+
+   if (sourcelang.value=="eng"){
+    sourceText.placeholder="Enter the Text in English";
+   }else if(sourcelang.value=="kon"){
+    sourceText.placeholder="Enter text in Konkani";
+   }
+   });
+
+   const targetlang=document.getElementById("targetlang");
+
+   sourcelang.addEventListener("change",function(){
+    if (sourcelang.value=="eng"){
+        targetlang.value="kon";
+    } else if(sourcelang.value=="kon"){
+        targetlang.value="eng";
+    } 
+   });
+
+   targetlang.addEventListener("change", function () {
+
+    if (targetlang.value == "eng") {
+        sourcelang.value = "kon";
+    }
+    else if (targetlang.value == "kon") {
+        sourcelang.value = "eng";
+    }
+
+});
+
+</script>
 </body>
 </html>

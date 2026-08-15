@@ -24,7 +24,7 @@
         }
 
     select {
-    width: 80px;
+    width: 90px;
     height: 30px;
     font-size: 18px;
 }
@@ -54,7 +54,43 @@ textarea{
     height: 150px;
     resize: none;
 }
-    </style>
+
+
+#btn{
+    width: 150px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-top: 20px;
+
+}
+
+footer{
+    background: brown;
+    margin-top: 250px;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+
+@media (max-width:768px) {
+
+    #lang{
+         flex-direction: column;
+         align-items: center;
+         gap: 15px;
+    }
+    
+    #text{
+         flex-direction: column;
+         align-items: center;
+         gap: 20px;
+    }
+
+
+}
+</style>
 </head>
 <body>
     
@@ -83,8 +119,10 @@ textarea{
                    <textarea name="" id=""></textarea>
         </div>
         
+        <button id="btn" >Transalate</button>
 
     </form>
 </div>
+<footer>Built By Karthik Pai | Sources: Save My Language</footer>
 </body>
 </html>

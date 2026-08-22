@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSB Konkani Translator</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+
+        }
+
+        body{
+            background:wheat;
+        }
+        #navi{
+            background-color: brown;
+            padding: 25px;
+        }
+
+        #navi h2{
+            color: white;
+        }
+
+    select {
+    width: 90px;
+    height: 30px;
+    font-size: 18px;
+}
+
+#main form{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#lang{
+    display: flex;
+    gap: 100px;
+    margin-top: 20px;
+}
+
+#text{
+    display: flex;
+    gap:100px;
+    margin-top: 20px;;
+
+}
+
+textarea{
+    width: 300px;
+    height: 150px;
+    resize: none;
+}
+
+
+#btn{
+    width: 150px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-top: 20px;
+
+}
+
+footer{
+    background: brown;
+    margin-top: 250px;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+
+@media (max-width:768px) {
+
+    #lang{
+         flex-direction: column;
+         align-items: center;
+         gap: 15px;
+    }
+    
+    #text{
+         flex-direction: column;
+         align-items: center;
+         gap: 20px;
+    }
+
+
+}
+</style>
+</head>
+<body>
+    
+<nav id="navi">
+    <h2>GSB Konkani Translator</h2>
+</nav>
+
+<div id="main">
+    <form action="">
+
+        <div id="lang">
+        <select id="sourcelang">
+            <option value="eng" id="en" selected>English</option>
+            <option value="kon" id="ko">Konkani</option>
+        </select>
+
+
+
+        <select id="targetlang">
+            <option value="eng" id="en">English</option>
+            <option value="kon" selected id="kon">Konkani</option>
+        </select>
+        </div>
+        <div id="text">
+                 <textarea name="" id="sourceText" placeholder="Enter  Text in English"></textarea>
+                   <textarea name="" id="targetText" placeholder="Translated Text" disabled></textarea>
+        </div>
+        
+        <button id="btn" >Transalate</button>
+
+    </form>
+</div>
+<footer>Built By Karthik Pai | Sources: Save My Language</footer>
+
+<script>
+   const sourcelang=document.getElementById("sourcelang");
+   const sourceText=document.getElementById("sourceText");
+
+sourcelang.addEventListener("change",function(){
+
+   if (sourcelang.value=="eng"){
+    sourceText.placeholder="Enter the Text in English";
+   }else if(sourcelang.value=="kon"){
+    sourceText.placeholder="Enter text in Konkani";
+   }
+   });
+
+   const targetlang=document.getElementById("targetlang");
+
+   sourcelang.addEventListener("change",function(){
+    if (sourcelang.value=="eng"){
+        targetlang.value="kon";
+    } else if(sourcelang.value=="kon"){
+        targetlang.value="eng";
+    } 
+   });
+
+   targetlang.addEventListener("change", function () {
+
+    if (targetlang.value == "eng") {
+        sourcelang.value = "kon";
+    }
+    else if (targetlang.value == "kon") {
+        sourcelang.value = "eng";
+    }
+
+});
+
+</script>
+</body>
+</html>

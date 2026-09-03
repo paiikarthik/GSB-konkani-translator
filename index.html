@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GSB Konkani Translator</title>
     <style>
-        *{
-            padding: 0;
-            margin: 0;
-
-        }
-  
+        * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
         body{ 
             background:wheat;
         }
@@ -120,7 +119,7 @@ textarea{
 </nav>
 
 <div id="main">
-    <form action="">
+    <form action="" id="translatorForm">
 
         <div id="lang">
         <select id="sourcelang">
@@ -179,6 +178,12 @@ sourcelang.addEventListener("change",function(){
     }
 
 });
+
+const form=document.getElementById("translatorForm");
+
+form.addEventListener("submit",function(event){
+    event.preventDefault();
+})
 
 </script>
 </body>
